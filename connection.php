@@ -4,7 +4,7 @@
     $DB_HOST = 'localhost';
     $DB_USER = 'root';
     $DB_PASS = 'root';
-    $DB_NAME = 'carproject';
+    $DB_NAME = 'zoomio';
 
     // Try to connect to the database directly.
     $con = @mysqli_connect($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
@@ -36,7 +36,7 @@
         return true;
     }
 
-    $sqlFile = __DIR__ . '/database/carproject.sql';
+    $sqlFile = __DIR__ . '/database/create.sql';
 
     if(!$con){
         // The database probably doesn't exist. Connect without specifying database

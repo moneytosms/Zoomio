@@ -90,6 +90,6 @@ $cur = basename($_SERVER['PHP_SELF']);
             </div>
     </div>
     </div>
-<script src="js/admin.js"></script>
+<script src="../js/"></script>
 </body>
 </html>

@@ -30,8 +30,8 @@
     <nav class="menu">
       <ul>
         <li><a href="cardetails.php" class="<?php echo ($cur=='cardetails.php')?'active':''; ?>">HOME</a></li>
-        <li><a href="aboutus2.html" class="<?php echo ($cur=='aboutus2.html')?'active':''; ?>">ABOUT</a></li>
-        <li><a href="contactus2.html" class="<?php echo ($cur=='contactus2.html')?'active':''; ?>">CONTACT</a></li>
+        <li><a href="aboutus.html" class="<?php echo ($cur=='aboutus.html')?'active':''; ?>">ABOUT</a></li>
+        <li><a href="contactus.html" class="<?php echo ($cur=='contactus.html')?'active':''; ?>">CONTACT</a></li>
         <li><a href="feedback/Feedbacks.php" class="<?php echo ($cur=='Feedbacks.php')?'active':''; ?>">FEEDBACK</a></li>
         <li><a class="btn btn--ghost" href="index.php">LOGOUT</a></li>
         <li><img src="images/profile.png" class="circle" alt="profile"></li>

@@ -5,8 +5,8 @@
 		  <link rel="stylesheet" href="css/bootstrap.min.css">
 		  <script src="js/jquery-3.3.1.min.js"></script>
 		  <script src="js/bootstrap.min.js"></script>
-		  <link rel="stylesheet" href="Stylesheet.css">
-		  <!-- app.css included after older sheets so it overrides colors -->
+		  <link rel="stylesheet" href="Stylesheet.css"> 
+		  <!-- app.css included after older sheets so it overrides colors  -->
 		  <link rel="stylesheet" href="../css/app.css">
 		  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		</head>
@@ -41,7 +41,7 @@ if(isset($_POST['submit'])){
 		<h1 class="header">Feedback</h1>
 		<div class="de">
 			<div>
-				<p class="muted">We appreciate your feedback — tell us what went well and where we can improve.</p>
+				<p class="muted">We appreciate your feedback - tell us what went well and where we can improve.</p>
 			</div>
 			<div>
 				<form method="POST">

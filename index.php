@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     
-    <title>CAR RENTAL</title>
+    <title>Zoomio</title>
     <script type="text/javascript">
         window.history.forward();
         function noBack() {
@@ -83,8 +82,6 @@ require_once('connection.php');
                 <ul>
                     <li><a href="#">HOME</a></li>
                     <li><a href="aboutus.html">ABOUT</a></li>
-                    <li><a href="#">SERVICES</a></li>
-                    
                     <li><a href="contactus.html">CONTACT</a></li>
                   <li> <a class="btn btn--ghost" href="adminlogin.php">ADMIN LOGIN</a></li>
                 </ul>

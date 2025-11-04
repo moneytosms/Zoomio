@@ -1,29 +1,5 @@
--- phpMyAdmin SQL Dump
--- version 5.1.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Aug 13, 2022 at 08:41 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.13
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `carproject`
---
-
--- Create database and schema for carproject with idempotent statements.
-CREATE DATABASE IF NOT EXISTS `carproject` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `carproject`;
+CREATE DATABASE IF NOT EXISTS `zoomio` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE `zoomio`;
 
 -- Admins table
 CREATE TABLE IF NOT EXISTS `admin` (
@@ -33,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
 
 -- Seed admin
 INSERT INTO `admin` (`ADMIN_ID`,`ADMIN_PASSWORD`) VALUES
-('admin','admin123')
+('admin','admin')
 ON DUPLICATE KEY UPDATE ADMIN_PASSWORD=VALUES(ADMIN_PASSWORD);
 
 -- Users table
@@ -47,12 +23,12 @@ CREATE TABLE IF NOT EXISTS `users` (
   `GENDER` VARCHAR(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Seed users (dummy data)
+-- Seed users 
 INSERT INTO `users` (`EMAIL`,`FNAME`,`LNAME`,`LIC_NUM`,`PHONE_NUMBER`,`PASSWORD`,`GENDER`) VALUES
-('alice@example.com','Alice','Walker','LIC-A100',9876501234,'passwordAlice','female'),
-('bob@example.com','Bob','Ramirez','LIC-B200',9876505678,'passwordBob','male'),
-('carol@example.com','Carol','Singh','LIC-C300',9876509012,'passwordCarol','female')
-ON DUPLICATE KEY UPDATE FNAME=VALUES(FNAME);
+('alice.w@domain.com','Alice','Walker','DL-KA-01-A100',9876540123,'Alice$ecure1','Female'),
+('bob.r@domain.com','Bob','Ramirez','DL-TN-02-B200',9876545678,'BobStrong!2','Male'),
+('carol.s@domain.com','Carol','Singh','DL-MH-03-C300',9876549012,'CarolPass#3','Female')
+ON DUPLICATE KEY UPDATE FNAME=VALUES(FNAME), LNAME=VALUES(LNAME);
 
 -- Cars table
 CREATE TABLE IF NOT EXISTS `cars` (
@@ -65,13 +41,13 @@ CREATE TABLE IF NOT EXISTS `cars` (
   `AVAILABLE` ENUM('Y','N') DEFAULT 'Y'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Seed cars (dummy)
+-- Seed cars 
 INSERT INTO `cars` (`CAR_NAME`,`FUEL_TYPE`,`CAPACITY`,`PRICE`,`CAR_IMG`,`AVAILABLE`) VALUES
-('Ferrari F8','Petrol',2,25000,'ferrari.jpg','Y'),
+('Ferrari F8','Petrol',2,25000,'ferrari-f8.webp','Y'),
 ('Lamborghini Huracan','Petrol',2,30000,'lamborghini.webp','Y'),
-('Toyota Swift','Diesel',5,1200,'swift.jpg','Y'),
-('Hyundai Creta','Petrol',5,2000,'creta.jpg','Y')
-ON DUPLICATE KEY UPDATE CAR_NAME=VALUES(CAR_NAME);
+('Suzuki Alto Grey','Diesel',5,1200,'suzuki-alto-grey.jpg','Y'),
+('Suzuki Alto Red','Petrol',5,1200,'suzuki-alto-red.jpg','Y')
+ON DUPLICATE KEY UPDATE CAR_NAME=VALUES(CAR_NAME), PRICE=VALUES(PRICE);
 
 -- Booking table
 CREATE TABLE IF NOT EXISTS `booking` (
@@ -90,10 +66,11 @@ CREATE TABLE IF NOT EXISTS `booking` (
   FOREIGN KEY (`EMAIL`) REFERENCES `users`(`EMAIL`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Sample bookings
+-- Sample booking
 INSERT INTO `booking` (`CAR_ID`,`EMAIL`,`BOOK_PLACE`,`BOOK_DATE`,`DURATION`,`PHONE_NUMBER`,`DESTINATION`,`RETURN_DATE`,`PRICE`,`BOOK_STATUS`) VALUES
-(1,'alice@example.com','Bengaluru','2025-10-01',3,9876501234,'Mysore','2025-10-04',7500,'UNDER PROCESSING')
-ON DUPLICATE KEY UPDATE BOOK_STATUS=VALUES(BOOK_STATUS);
+(3,'alice.w@domain.com','Bengaluru','2025-07-15',3,9876540123,'Mysore','2025-07-18',3600,'UNDER PROCESSING')
+
+ON DUPLICATE KEY UPDATE BOOK_STATUS=VALUES(BOOK_STATUS), PRICE=VALUES(PRICE);
 
 -- Payment table
 CREATE TABLE IF NOT EXISTS `payment` (
@@ -106,18 +83,10 @@ CREATE TABLE IF NOT EXISTS `payment` (
   FOREIGN KEY (`BOOK_ID`) REFERENCES `booking`(`BOOK_ID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Feedback table
+-- Feedback 
 CREATE TABLE IF NOT EXISTS `feedback` (
   `FED_ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `EMAIL` VARCHAR(255) NOT NULL,
   `COMMENT` TEXT,
   FOREIGN KEY (`EMAIL`) REFERENCES `users`(`EMAIL`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- Finalize
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-  `PAY_ID` int(11) NOT NULL,

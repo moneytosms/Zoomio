@@ -90,9 +90,9 @@
                 <div class="menu" >
                     <ul>
                         <li ><a href="cardetails.php">HOME</a></li>
-                        <li><a href="aboutus2.html">ABOUT</a></li>
+                        <li><a href="aboutus.html">ABOUT</a></li>
                         <li><a href="#">DESIGN</a></li>
-                        <li><a href="contactus2.html">CONTACT</a></li>
+                        <li><a href="contactus.html">CONTACT</a></li>
                         <li><button class="nn"><a href="index.html">LOGOUT</a></button></li>
                         <li><img src="images/profile.png" class="circle" alt="Alps"></li>
                     <li><p class="phello">HELLO! &nbsp;<a id="pname"><?php echo $rows['FNAME']." ".$rows['LNAME']?></a></p></li>

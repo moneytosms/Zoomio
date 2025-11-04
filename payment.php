@@ -6,9 +6,9 @@
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css"
-      href="main.js" 
+      href="js/main.js" 
     />
-    <script src="main.js"></script>
+    <script src="js/main.js"></script>
   <link rel="stylesheet" href="css/pay.css" />
   <?php
   require_once('connection.php');
@@ -87,7 +87,7 @@
       </div>
 
       <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
-      <script src="main.js"></script>
+      <script src="js/main.js"></script>
       <script>
         // format card number and expiry using Cleave if available
         if(window.Cleave){
